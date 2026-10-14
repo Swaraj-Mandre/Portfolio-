@@ -1,0 +1,247 @@
+{
+  "recruitsheriff": {
+    "tagline": "From a requirement to a reason.",
+    "video": "/images/project-films/recruitsheriff/film.mp4",
+    "poster": "/images/project-films/recruitsheriff/poster.jpg",
+    "duration": 18,
+    "note": "Edited walkthrough of supplied screenshots. Candidate identifiers are masked in the source captures.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "Define the requirements"
+      },
+      {
+        "time": 6,
+        "label": "Inspect the shortlist"
+      },
+      {
+        "time": 12,
+        "label": "Follow the evidence"
+      }
+    ],
+    "features": [
+      {
+        "title": "A checklist you can inspect.",
+        "text": "The job description becomes an editable requirement list before screening begins.",
+        "image": "/images/project-films/recruitsheriff/detail-1.jpg"
+      },
+      {
+        "title": "The reason behind the score.",
+        "text": "Requirement verdicts, supporting quotes and interview questions keep the assessment inspectable.",
+        "image": "/images/project-films/recruitsheriff/detail-2.jpg"
+      }
+    ]
+  },
+  "rag-knowledge-system": {
+    "tagline": "Ask the documents. Follow the evidence.",
+    "video": "/images/project-films/rag-knowledge-system/film.mp4",
+    "poster": "/images/project-films/rag-knowledge-system/poster.jpg",
+    "duration": 18,
+    "note": "Edited walkthrough of recorded interface states. Retrieval results do not establish general answer accuracy.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "Ask a document question"
+      },
+      {
+        "time": 6,
+        "label": "Inspect the cited answer"
+      },
+      {
+        "time": 12,
+        "label": "Know when evidence is missing"
+      }
+    ],
+    "features": [
+      {
+        "title": "Answers with a way back.",
+        "text": "Page and slide references connect the answer to the retrieved source material.",
+        "image": "/images/project-films/rag-knowledge-system/detail-1.jpg"
+      },
+      {
+        "title": "A useful boundary.",
+        "text": "The captured refusal shows a case where the documents did not provide the requested answer.",
+        "image": "/images/project-films/rag-knowledge-system/detail-2.jpg"
+      }
+    ]
+  },
+  "medcare24": {
+    "tagline": "A clearer handover. A visible security layer.",
+    "video": "/images/project-films/medcare24/film.mp4",
+    "poster": "/images/project-films/medcare24/poster.jpg",
+    "duration": 18,
+    "note": "Edited prototype demonstration using simulated patient data. The original design and later implementation are separate stages.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "See the incoming readings"
+      },
+      {
+        "time": 6,
+        "label": "Inspect security checks"
+      },
+      {
+        "time": 12,
+        "label": "Connect both sides of the journey"
+      }
+    ],
+    "features": [
+      {
+        "title": "Information for the receiving team.",
+        "text": "The prototype brings incoming vitals and alerts into one dashboard. These are demonstration readings.",
+        "image": "/images/project-films/medcare24/detail-1.jpg"
+      },
+      {
+        "title": "Security you can examine.",
+        "text": "The Security Lab exposes replay, tampering and spoofing checks in the implemented workflow.",
+        "image": "/images/project-films/medcare24/detail-2.jpg"
+      }
+    ]
+  },
+  "luxe": {
+    "tagline": "From the first find to the final delivery.",
+    "video": "/images/project-films/luxe/film.mp4",
+    "poster": "/images/project-films/luxe/poster.jpg",
+    "duration": 18,
+    "note": "Animated presentation of Figma designs. It does not represent a shipped shopping application.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "Discover a collection"
+      },
+      {
+        "time": 6,
+        "label": "Choose the details"
+      },
+      {
+        "time": 12,
+        "label": "Follow the delivery"
+      }
+    ],
+    "features": [
+      {
+        "title": "Make the choice feel clear.",
+        "text": "Product imagery, size choices and purchase actions share one focused selection screen.",
+        "image": "/images/project-films/luxe/detail-1.jpg",
+        "width": 960,
+        "height": 1024
+      },
+      {
+        "title": "Stay connected after checkout.",
+        "text": "The order timeline explores how delivery progress can stay visible in the shopping experience.",
+        "image": "/images/project-films/luxe/detail-2.jpg",
+        "width": 960,
+        "height": 1024
+      }
+    ],
+    "device": "phone"
+  },
+  "storybook": {
+    "tagline": "One story. More than one way in.",
+    "video": "/images/project-films/storybook/film.mp4",
+    "poster": "/images/project-films/storybook/poster.jpg",
+    "duration": 18,
+    "note": "Animated presentation of supplied mobile design exports. This is a design concept, not a live app recording.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "Discover your next story"
+      },
+      {
+        "time": 6,
+        "label": "Make room for reading"
+      },
+      {
+        "time": 12,
+        "label": "Switch to listening"
+      }
+    ],
+    "features": [
+      {
+        "title": "Let the page take the lead.",
+        "text": "The reading view removes the discovery interface so attention can return to the story.",
+        "image": "/images/project-films/storybook/detail-1.jpg",
+        "width": 960,
+        "height": 1024
+      },
+      {
+        "title": "A different way to keep going.",
+        "text": "The listening screen gives audio its own controls within the same product language.",
+        "image": "/images/project-films/storybook/detail-2.jpg",
+        "width": 960,
+        "height": 1024
+      }
+    ],
+    "device": "phone"
+  },
+  "uav-pollination": {
+    "tagline": "Bringing perception and apparatus together.",
+    "video": "/images/project-films/uav-pollination/film.mp4",
+    "poster": "/images/project-films/uav-pollination/poster.jpg",
+    "duration": 18,
+    "note": "Animated research diagrams based on the supplied project record. No CAD footage, working flight or granted patent is implied.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "Assemble the physical system"
+      },
+      {
+        "time": 6,
+        "label": "Explore flower detection"
+      },
+      {
+        "time": 12,
+        "label": "Record the invention"
+      }
+    ],
+    "features": [
+      {
+        "title": "Integration is part of the invention.",
+        "text": "My recorded contribution includes Fusion 360 assemblies and apparatus integration.",
+        "image": "/images/project-films/uav-pollination/detail-1.jpg"
+      },
+      {
+        "title": "Vision meets the field.",
+        "text": "Flower-image collection and YOLO/OpenCV work sit alongside the mechanical contribution.",
+        "image": "/images/project-films/uav-pollination/detail-2.jpg"
+      }
+    ]
+  },
+  "vidhya-setu": {
+    "tagline": "Learning has a missing step. Find it, then move forward.",
+    "video": "/images/vidhya-film/vidhya-product-film.mp4",
+    "poster": "/images/vidhya-film/poster.jpg",
+    "duration": 24,
+    "note": "Recreated interface animation based on captured prototype behaviour. Edited timing and camera movement; not a live application recording.",
+    "chapters": [
+      {
+        "time": 0,
+        "label": "Ask a question"
+      },
+      {
+        "time": 7,
+        "label": "Find the path"
+      },
+      {
+        "time": 13,
+        "label": "Reply naturally"
+      },
+      {
+        "time": 18,
+        "label": "Step back"
+      }
+    ],
+    "features": [
+      {
+        "title": "The route before the answer.",
+        "text": "A bounded prerequisite path makes the sequence of concepts visible.",
+        "image": "/images/project-films/vidhya-detail-1.jpg"
+      },
+      {
+        "title": "A reply changes the direction.",
+        "text": "This recorded status shows a confused response routing the session back one step.",
+        "image": "/images/project-films/vidhya-detail-2.jpg"
+      }
+    ]
+  }
+}
