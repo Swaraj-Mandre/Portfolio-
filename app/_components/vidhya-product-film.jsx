@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import { featureDetails } from '../_data/feature-details';
 import './vidhya-product-film.css';
 
 export function ProjectShowcase({ project, story }) {
@@ -10,6 +12,22 @@ export function ProjectShowcase({ project, story }) {
   const [playing,setPlaying] = useState(false);
   const [loading,setLoading] = useState(false);
   const [error,setError] = useState('');
+  const [detailIndex, setDetailIndex] = useState(null);
+  const detailDialog = useRef(null);
+  const selectedFeature = detailIndex === null ? null : story.features[detailIndex];
+  const selectedDetail = detailIndex === null ? null : featureDetails[project.slug][detailIndex];
+  useEffect(() => {
+    if (detailIndex === null) return;
+    const dialog = detailDialog.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    video.current?.pause();
+    dialog.showModal();
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [detailIndex]);
   useEffect(() => {
     const resource = media.current;
     return () => {
@@ -61,7 +79,21 @@ export function ProjectShowcase({ project, story }) {
     <nav className='vf-moments' style={{'--chapter-count':story.chapters.length}} aria-label='Film chapters'>{story.chapters.map((moment,index)=><button key={moment.time} onClick={()=>play(moment.time)}><span>0{index+1}</span>{moment.label}<small>00:{String(moment.time).padStart(2,'0')} ↗</small></button>)}</nav>
     {error && <p role='status'>{error}</p>}
     <p className='vf-disclosure'>{story.note}</p>
-    <section className='vf-features' aria-label='Two project details'>{story.features.map((feature,index)=><figure key={feature.image} className='vf-feature'><div className='vf-feature-image'><Image src={feature.image} alt={`${project.title}: ${feature.title}`} width={feature.width || 1536} height={feature.height || 1024} unoptimized /></div><figcaption><span>0{index+1} / IN FOCUS</span><h2>{feature.title}</h2><p>{feature.text}</p><a href={feature.image} target='_blank' rel='noreferrer'>View detail ↗</a></figcaption></figure>)}</section>
+    <section className='vf-features' aria-label='Two project details'>{story.features.map((feature,index)=><figure key={feature.image} className='vf-feature'><div className='vf-feature-image'><Image src={feature.image} alt={`${project.title}: ${feature.title}`} width={feature.width || 1536} height={feature.height || 1024} unoptimized /></div><figcaption><span>0{index+1} / IN FOCUS</span><h2>{feature.title}</h2><p>{feature.text}</p><button className='vf-detail-trigger' aria-haspopup='dialog' aria-label={`View detail: ${feature.title}`} onClick={()=>setDetailIndex(index)}>View detail ↗</button></figcaption></figure>)}</section>
+    {selectedFeature && createPortal(
+      <dialog ref={detailDialog} className='vf-detail-dialog' aria-labelledby='vf-detail-title' data-lenis-prevent onClose={()=>setDetailIndex(null)}>
+        <header className='vf-detail-toolbar'><span>{project.title} / IN FOCUS</span><button type='button' autoFocus aria-label='Close project detail' onClick={()=>detailDialog.current.close()}>Close ×</button></header>
+        <article className='vf-detail-content'>
+          <p className='vf-detail-kicker'>FEATURE 0{detailIndex+1}</p>
+          <h2 id='vf-detail-title'>{selectedFeature.title}</h2>
+          <p className='vf-detail-lead'>{selectedDetail.overview}</p>
+          <section><h3>How it works</h3><ol>{selectedDetail.steps.map(step=><li key={step}>{step}</li>)}</ol></section>
+          <section><h3>Why it matters</h3><p>{selectedDetail.why}</p></section>
+          <aside><h3>Current scope</h3><p>{selectedDetail.scope}</p></aside>
+          <button className='vf-detail-back' onClick={()=>detailDialog.current.close()}>← Back to {project.title}</button>
+        </article>
+      </dialog>, document.body
+    )}
     <details className='vf-notes'><summary>My contribution, evidence and current limitations <span>+</span></summary><div><p>{project.approach}</p><p>{project.evidence}</p><p>{project.limits}</p><p>{project.next}</p></div></details>
   </div>;
 }
