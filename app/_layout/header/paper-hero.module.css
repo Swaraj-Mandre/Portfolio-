@@ -1,0 +1,105 @@
+.hero {
+  --ink: #171918;
+  position: relative;
+  display: grid;
+  align-items: start;
+  min-height: 660px;
+  height: 100svh;
+  max-height: 1100px;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ink);
+  background-color: #e8e8e6;
+  background-image: linear-gradient(#ededeb32, #ededeb32), url('/images/hero-paper/paper-texture.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(#77797626 1px, transparent 1px), linear-gradient(90deg, #77797626 1px, transparent 1px);
+  background-size: clamp(26px, 3.18vw, 55px) clamp(26px, 3.18vw, 55px);
+  background-position: center;
+}
+
+/* Scope the navigation contrast adjustment to the home page's light hero. */
+:global(body):has(.hero) :global(.portfolio-nav) { color: #171918; }
+
+.composition {
+  position: relative;
+  width: min(76%, 1280px);
+  margin: clamp(170px, 26.8svh, 290px) auto 0;
+}
+.accessibleTitle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.titleArtwork { display: block; width: 100%; overflow: visible; fill: var(--ink); }
+.descriptor, .year { font-family: Arial, Helvetica, sans-serif; font-size: 29px; font-weight: 700; letter-spacing: -1.1px; }
+.year { font-size: 31px; }
+.lettering { font-family: 'Arial Black', 'Arial', sans-serif; font-size: 158px; font-weight: 900; letter-spacing: -7px; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
+.face { filter: grayscale(1); }
+.openEyes { opacity: 1; animation: blinkOpen 9s step-end 3.2s infinite; }
+.closedEyes { opacity: 0; animation: blink 9s step-end 3.2s infinite; }
+.pupils { animation: lookLeft 9s ease-in-out 3.2s infinite; }
+.signature {
+  display: block;
+  width: 30%;
+  height: auto;
+  margin: -0.5% 0 0 61%;
+  overflow: visible;
+  fill: none;
+  stroke: var(--ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.arrow { stroke-width: 2.5; }
+.handwriting { stroke-width: 2; }
+.handwriting path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-duration: 8.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 3.2s;
+}
+.ornaments { display: block; width: 16%; height: auto; margin: 5% auto 0; fill: var(--ink); }
+.hero[data-motion='paused'] .openEyes,
+.hero[data-motion='paused'] .closedEyes,
+.hero[data-motion='paused'] .pupils,
+.hero[data-motion='paused'] .handwriting path { animation-play-state: paused; }
+@keyframes blink {
+  0%, 25%, 65%, 100% { opacity: 0; }
+  22%, 62% { opacity: 1; }
+}
+@keyframes blinkOpen {
+  0%, 25%, 65%, 100% { opacity: 1; }
+  22%, 62% { opacity: 0; }
+}
+@keyframes lookLeft {
+  0%, 25%, 65%, 100% { transform: translateX(0); }
+  30%, 62% { transform: translateX(-35px); }
+}
+@media (max-width: 767px) {
+  .hero { min-height: 580px; max-height: 900px; }
+  .composition { width: 92%; margin-top: max(190px, 31svh); }
+  .descriptor { font-size: 32px; }
+  .signature { width: 49%; margin-left: 48%; margin-top: 3%; }
+  .ornaments { width: 25%; margin-top: 17%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .composition { opacity: 1 !important; transform: none !important; }
+  .openEyes, .closedEyes, .pupils { animation: none; }
+  .handwriting path { animation: none; stroke-dashoffset: 0; opacity: 1; }
+}
