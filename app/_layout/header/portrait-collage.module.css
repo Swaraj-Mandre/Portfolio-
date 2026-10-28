@@ -1,0 +1,60 @@
+.slot {
+  align-self: end;
+  min-width: 0;
+  margin-top: clamp(18px, 2vw, 32px);
+  padding-bottom: 14px;
+  transform: translateY(var(--portrait-overlap));
+}
+.collage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(400px, 43vw, 660px);
+  margin: 0;
+  overflow: hidden;
+  /* Keep the portrait above the upper tear, and share the real lower fibres. */
+  -webkit-mask-image: linear-gradient(#000 0 80%, transparent 80%), url('/images/hero-paper/torn-black-paper-v2.webp');
+  mask-image: linear-gradient(#000 0 80%, transparent 80%), url('/images/hero-paper/torn-black-paper-v2.webp');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+}
+.paper, .lowerFibres, .lettering {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.paper, .lowerFibres { max-width: none; object-fit: fill; pointer-events: none; filter: grayscale(1); }
+.lettering { display: block; }
+.portrait {
+  position: absolute;
+  height: 106%;
+  width: auto;
+  max-width: none;
+  left: 50%;
+  bottom: -7%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+/* The bottom pulp sits in front of the photograph as in a physical collage. */
+.lowerFibres {
+  clip-path: inset(80% 0 0);
+  mask-image: url('/images/hero-paper/torn-black-paper-v2.webp');
+  mask-mode: luminance;
+  mask-size: 100% 100%;
+}
+@media (max-width: 767px) {
+  .slot { margin-top: 22px; padding-bottom: 12px; }
+  .collage { height: clamp(380px, 57svh, 480px); }
+  .paper, .lowerFibres, .lettering { width: 200%; left: -50%; }
+  .collage {
+    -webkit-mask-size: 100% 100%, 200% 100%;
+    mask-size: 100% 100%, 200% 100%;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+}

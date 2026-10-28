@@ -1,13 +1,18 @@
+.hero, .hero + :global(main) {
+  --portrait-overlap: clamp(78px, calc(6.88vw + 14px), 119.6px);
+}
+.hero + :global(main) { padding-top: var(--portrait-overlap); }
+
 .hero {
   --ink: #171918;
   position: relative;
   display: grid;
+  grid-template-rows: auto 1fr;
   align-items: start;
-  min-height: 660px;
-  height: 100svh;
-  max-height: 1100px;
-  overflow: hidden;
+  min-height: 100svh;
+  overflow: visible;
   isolation: isolate;
+  z-index: 1;
   color: var(--ink);
   background-color: #e8e8e6;
   background-image: linear-gradient(#ededeb32, #ededeb32), url('/images/hero-paper/paper-texture.webp');
@@ -32,7 +37,7 @@
 .composition {
   position: relative;
   width: min(76%, 1280px);
-  margin: clamp(170px, 26.8svh, 290px) auto 0;
+  margin: calc(clamp(104px, 13svh, 150px) + 12px) auto 0;
 }
 .accessibleTitle {
   position: absolute;
@@ -74,7 +79,7 @@
   animation-iteration-count: infinite;
   animation-delay: 3.2s;
 }
-.ornaments { display: block; width: 16%; height: auto; margin: 5% auto 0; fill: var(--ink); }
+.ornaments { display: block; width: 16%; height: auto; margin: 2% auto 0; fill: var(--ink); }
 .hero[data-motion='paused'] .openEyes,
 .hero[data-motion='paused'] .closedEyes,
 .hero[data-motion='paused'] .pupils,
@@ -92,11 +97,13 @@
   30%, 62% { transform: translateX(-35px); }
 }
 @media (max-width: 767px) {
-  .hero { min-height: 580px; max-height: 900px; }
-  .composition { width: 92%; margin-top: max(190px, 31svh); }
+  .hero, .hero + :global(main) {
+    --portrait-overlap: calc(clamp(60.8px, 9.12svh, 76.8px) + 12px);
+  }
+  .composition { width: 92%; margin-top: calc(clamp(114px, 16svh, 150px) + 12px); }
   .descriptor { font-size: 32px; }
   .signature { width: 49%; margin-left: 48%; margin-top: 3%; }
-  .ornaments { width: 25%; margin-top: 17%; }
+  .ornaments { width: 25%; margin-top: 7%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .composition { opacity: 1 !important; transform: none !important; }

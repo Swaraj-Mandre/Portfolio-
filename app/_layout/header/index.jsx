@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import styles from './paper-hero.module.css';
+import { PortraitCollage } from './portrait-collage';
 
 // Single-line letters make the name write itself rather than fade in as a block.
 const signature = [
@@ -67,8 +68,8 @@ export function Header() {
               <image href='/images/hero-paper/swaraj-ink-eyes.webp' width='1774' height='887' />
               <g clipPath='url(#paper-hero-eye-openings)'>
                 <g className={styles.pupils} fill='#101111' fillRule='evenodd'>
-                  <path d='M401 479 a27 30 0 1 1 -54 0 a27 30 0 1 1 54 0Z M365 465 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0Z' />
-                  <path d='M626 474 a27 30 0 1 1 -54 0 a27 30 0 1 1 54 0Z M590 460 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0Z' />
+                  <path d='M398 479 a24 27 0 1 1 -48 0 a24 27 0 1 1 48 0Z M365 465 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0Z' />
+                  <path d='M623 474 a24 27 0 1 1 -48 0 a24 27 0 1 1 48 0Z M590 460 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0Z' />
                 </g>
               </g>
             </g>
@@ -90,6 +91,7 @@ export function Header() {
           <path d='M159 30 C127 5 163 -12 165 11 C168 -13 191 4 187 17 Q185 27 167 32 C202 28 199 61 179 56 Q169 54 164 35 C172 65 141 70 140 49 Q139 37 159 30Z' />
         </svg>
       </motion.div>
+      <PortraitCollage running={visible && !reducedMotion} />
     </header>
   );
 }
