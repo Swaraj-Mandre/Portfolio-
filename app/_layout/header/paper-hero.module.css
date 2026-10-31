@@ -98,8 +98,10 @@
 }
 @media (max-width: 767px) {
   .hero, .hero + :global(main) {
-    --portrait-overlap: calc(clamp(60.8px, 9.12svh, 76.8px) + 12px);
+    --portrait-height: clamp(210px, 62vw, 360px);
+    --portrait-overlap: calc(var(--portrait-height) * .16 + 12px);
   }
+  .hero { min-height: auto; }
   .composition { width: 92%; margin-top: calc(clamp(114px, 16svh, 150px) + 12px); }
   .descriptor { font-size: 32px; }
   .signature { width: 49%; margin-left: 48%; margin-top: 3%; }
