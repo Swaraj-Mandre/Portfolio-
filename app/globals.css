@@ -3,11 +3,63 @@
 @tailwind utilities;
 
 :root {
-  --background: 49 29% 87%;
-  --foreground: 148 26% 15%;
+  --cream: 48.75 40% 92.16%;
+  --green: 150 25.64% 15.29%;
+  --background: var(--cream);
+  --foreground: var(--green);
   --primary: 150 35% 29%;
   --primary-foreground: 150 40% 22%;
   --window-light: .5;
+}
+
+:root[data-ink-theme='green'] {
+  --background: var(--green);
+  --foreground: var(--cream);
+}
+:root, :root[data-ink-theme] {
+  --card: var(--background);
+  --popover: var(--background);
+  --muted: var(--background);
+  --accent: var(--background);
+  --secondary: var(--background);
+  --card-foreground: var(--foreground);
+  --popover-foreground: var(--foreground);
+  --muted-foreground: var(--foreground);
+  --accent-foreground: var(--foreground);
+  --secondary-foreground: var(--foreground);
+  --ring: var(--foreground);
+  --border: 72 9% 70%;
+  --input: var(--border);
+}
+:root[data-ink-theme='green'] { --border: 134 9% 38%; }
+
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.ink-theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: inherit;
+  background: transparent;
+  touch-action: manipulation;
+}
+.ink-theme-toggle:hover { background: hsl(var(--foreground) / .08); }
+.ink-theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 1023px) {
+  .nav-actions { margin-right: 50px; height: 56px; }
+}
+html[data-ink-bleeding]::view-transition-group(root),
+html[data-ink-bleeding]::view-transition-old(root) { animation: none; }
+html[data-ink-bleeding]::view-transition-image-pair(root) { isolation: isolate; }
+html[data-ink-bleeding]::view-transition-old(root),
+html[data-ink-bleeding]::view-transition-new(root) { mix-blend-mode: normal; }
+html[data-ink-bleeding]::view-transition-new(root) {
+  mask-image: url('/images/ink-bleed.webp');
+  mask-repeat: no-repeat;
+  mask-size: calc(var(--ink-width) * 8) calc(var(--ink-height) * 6);
+  animation: ink-spread 1350ms steps(1, end) both;
 }
 
 .portfolio-hero { background: #9da3a4; color: white; }
@@ -32,17 +84,6 @@
 .strip-label { position:absolute; inset:auto 0 0; padding:8px 14px; font-size:13px; background:hsl(var(--background) / .9); color:hsl(var(--foreground)); }
 .template-credit { max-width:320px; font-size:11px; margin-top:20px; line-height:1.5; }
 .template-credit a { text-decoration:underline; }
-.light-control { margin:50px auto 0; width:calc(100% - 96px); max-width:1200px; padding:28px 12px 0; border-top:1px solid currentColor; }
-.light-caption { display:flex; justify-content:space-between; gap:16px; font-size:11px; text-transform:uppercase; letter-spacing:1px; }
-.light-dial { position:relative; height:100px; margin-top:18px; }
-.light-ticks { position:absolute; inset:44px 9px 4px; display:flex; justify-content:space-between; align-items:center; pointer-events:none; }
-.light-ticks i { width:1px; height:14px; background:currentColor; opacity:.4; transition:height .2s,opacity .2s; }
-.light-ticks i:nth-child(3n+1) { height:23px; opacity:.7; }
-.light-ticks i.selected { height:40px; opacity:1; }
-.light-marker { position:absolute; top:0; left:clamp(9px,var(--dial-position),calc(100% - 9px)); transform:translateX(-50%); width:36px; height:36px; border-radius:50%; background:currentColor; display:grid; place-items:center; pointer-events:none; transition:left .2s; }
-.light-marker svg { color:hsl(var(--foreground)); }
-.light-dial input { position:absolute; bottom:0; left:0; width:100%; height:52px; margin:0; opacity:0; cursor:pointer; }
-.light-dial:has(input:focus-visible) { outline:2px solid currentColor; outline-offset:6px; border-radius:4px; }
 .inner-nav .portfolio-nav { color:hsl(var(--foreground)); }
 .case-page { padding-top:150px; padding-bottom:110px; }
 .back-link { display:inline-block; margin-bottom:38px; border-bottom:1px solid; padding-bottom:8px; }
@@ -168,11 +209,9 @@
   .case-sections p { font-size:17px; }
   .work-grid { grid-template-columns:1fr; gap:42px; }
   .work-image { height:310px; }
-  .light-control { width:calc(100% - 40px); padding-inline:5px; }
-  .light-caption { font-size:10px; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .portfolio-project-row h4,.light-marker,.light-ticks i,.work-image img { transition:none; }
+  .portfolio-project-row h4,.work-image img { transition:none; }
 }
 
 @layer base {

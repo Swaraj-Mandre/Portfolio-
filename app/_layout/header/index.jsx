@@ -63,6 +63,8 @@ export function Header() {
                 <path d='M310 482 Q366 427 431 479 Q375 515 310 482Z M541 474 Q594 421 656 470 Q601 509 541 474Z' />
               </clipPath>
             </defs>
+            <path className={styles.facePaper} transform='scale(9.85)'
+              d='M48 7 Q58 6 66 15 Q77 19 77 31 Q79 38 75 45 Q78 52 74 60 Q74 65 70 69 Q69 78 60 83 Q48 91 38 83 Q29 78 27 71 Q23 65 22 60 Q18 53 20 47 Q15 39 17 30 Q16 23 23 18 Q29 13 36 11Z' />
             <g className={styles.openEyes}>
               <image href='/images/hero-paper/swaraj-ink-eyes.webp' width='1774' height='887' />
               <g clipPath='url(#paper-hero-eye-openings)'>

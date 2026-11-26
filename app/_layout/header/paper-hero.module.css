@@ -25,7 +25,16 @@
   background-position: center;
 }
 
-/* Scope the navigation contrast adjustment to the home page's light hero. */
+:global(html[data-ink-theme='green']) .hero {
+  --ink: #f3f0e3;
+  background-color: #1d3127;
+  background-blend-mode: soft-light, multiply;
+}
+:global(html[data-ink-theme='green']) .hero::before { opacity: .65; }
+.facePaper { display: none; }
+:global(html[data-ink-theme='green']) .facePaper { display: block; fill: #f3f0e3; }
+:global(html[data-ink-theme='green'] body):has(.hero) :global(.portfolio-nav) { color: #f3f0e3; }
+
 :global(body):has(.hero) :global(.portfolio-nav) { color: #171918; }
 
 .composition {
