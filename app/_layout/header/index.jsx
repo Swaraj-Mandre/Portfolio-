@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import styles from './paper-hero.module.css';
-import { PortraitCollage } from './portrait-collage';
 
 // Single-line letters make the name write itself rather than fade in as a block.
 const signature = [
@@ -91,7 +90,6 @@ export function Header() {
           <path d='M159 30 C127 5 163 -12 165 11 C168 -13 191 4 187 17 Q185 27 167 32 C202 28 199 61 179 56 Q169 54 164 35 C172 65 141 70 140 49 Q139 37 159 30Z' />
         </svg>
       </motion.div>
-      <PortraitCollage running={visible && !reducedMotion} />
     </header>
   );
 }
