@@ -99,6 +99,20 @@
   0%, 25%, 65%, 100% { transform: translateX(0); }
   30%, 62% { transform: translateX(-35px); }
 }
+@media (min-width: 768px) {
+  .hero {
+    --nav-clearance: 104px;
+    min-height: 100vh;
+    min-height: 100svh;
+    align-items: center;
+    padding-block: var(--nav-clearance);
+  }
+  .composition {
+    /* The assembled artwork is just under 40% as tall as it is wide. */
+    width: min(84%, 1600px, max(480px, calc((100svh - 2 * var(--nav-clearance)) / .4)));
+    margin: 0 auto;
+  }
+}
 @media (max-width: 767px) {
   .composition { width: 92%; margin-top: calc(clamp(114px, 16svh, 150px) + 12px); }
   .descriptor { font-size: 32px; }
